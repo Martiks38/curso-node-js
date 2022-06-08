@@ -4,7 +4,8 @@
   "description": "Aplicación para subir archivos con Node.js al servidor",
   "main": "uploader.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./uploader.js"
   },
   "keywords": [
     "upload",
