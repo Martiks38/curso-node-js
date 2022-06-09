@@ -1,0 +1,16 @@
+{
+  "name": "promises",
+  "version": "0.0.1",
+  "description": "En este ejercicio aprenderemos a implementar Promesas en Node.js",
+  "main": "callback.js",
+  "scripts": {
+    "start": "nodemon ./callback.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "callback",
+    "promises"
+  ],
+  "author": "Martiks <cappa.giuliano@gmail.com>",
+  "license": "MIT"
+}
