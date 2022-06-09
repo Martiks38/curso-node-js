@@ -4,7 +4,8 @@
   "description": "En este ejercicio aprenderemos a implementar Promesas en Node.js",
   "main": "callback.js",
   "scripts": {
-    "start": "nodemon ./callback.js",
+    "callback": "node ./callback.js",
+    "promises": "node ./promises.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
