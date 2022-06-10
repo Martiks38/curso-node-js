@@ -1,0 +1,21 @@
+{
+  "name": "basicos-express",
+  "version": "0.0.1",
+  "description": "Ejemplos básicos con el framework Express.js",
+  "main": "00-hello-express.js",
+  "scripts": {
+    "start": "nodemon ./00-hello-express.js",
+    "node": "node",
+    "nodemon": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "node.js"
+  ],
+  "author": "Martiks <cappa.giuliano@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

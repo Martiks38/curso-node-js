@@ -1,2 +1,6 @@
 # Archivos subidos 
 02ModulosNPM/01SubirArchivo/upload/*
+
+# node_modules
+**/node_modules/*
+node_modules
