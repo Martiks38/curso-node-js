@@ -1,0 +1,21 @@
+{
+  "name": "contador-visitas",
+  "version": "0.0.1",
+  "description": "Contador de Visitas con Express",
+  "main": "contador-visitas.js",
+  "scripts": {
+    "start": "nodemon ./contador-visitas.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "counter"
+  ],
+  "author": "Martiks <cappa.giuliano@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "1.4.6",
+    "cookie-session": "2.0.0",
+    "express": "4.18.1"
+  }
+}
