@@ -1,0 +1,63 @@
+extends layout.pug
+
+block content
+  article#jade.container
+    h1
+      a(href="#{link}", target="_blank")= title
+    p= description
+  
+  article.container
+    h2 Estructura Básica de Jade
+    p Este archivo HTML es generado con el motor de plantillas Jade
+    p
+      |Para concatenar contenido
+      | en varias líneas
+      | se usa el pipe '|'
+    
+  include logo
+
+  article.container
+    p.
+      Si te gusta la forma en que Jade genera código HTML puedes leer la documentación del
+      #[a(href="https://pugjs.org/api/getting-started.html", target="_blank") API],
+       la referencia del
+      #[a(href="https://pugjs.org/api/reference.html", target="_blank") Lenguaje].
+    br
+    button#presioname.boton Presióname
+    script.
+      document.getElementById("presioname").onclick = () => {
+        alert("JavaScript ejecutado desde Jade")
+      }
+    
+    - let nombre = "Jade"
+    p Hola #{nombre}
+
+    -let fecha = new Date()
+    -let hora = fecha.getHours()
+
+    if(hora < 12)
+      p La hora #{hora} es Antes del Meridiano (AM)
+    else
+      p La hora #{hora} es Posterior al Meridiano (PM)
+    
+    -let estaciones = ["Primavera", "Verano", "Otoño", "Invierno"]
+
+    h2 Estaciones del Año
+    
+    ol
+      each estacion of estaciones
+        li #{estaciones[estacion]}
+
+    mixin mesesEstacionesMexico(estaciones, meses)
+      div.item
+        h3 #{estacion}
+        ul
+          each mes in meses
+            li #{mes}
+
+    article.container
+      h2 Estaciones del Año en México
+      +mesesEstacionesMexico(estaciones[0], ["Abril", "Mayo", "Junio"])
+      +mesesEstacionesMexico(estaciones[1], ["Julio", "Agosto", "Septiembre"])
+      +mesesEstacionesMexico(estaciones[2], ["Octubre", "Noviembre", "Diciembre"])
+      +mesesEstacionesMexico(estaciones[3], ["Enero", "Febrero", "Marzo"])
