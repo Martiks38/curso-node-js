@@ -3,8 +3,6 @@
 const express = require('express')
 const app = express()
 
-const path = require('path')
-
 const favicon = require('serve-favicon')
 const jade = require('jade')
 const morgan = require('morgan')

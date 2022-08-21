@@ -1,4 +1,4 @@
-let app = require('./app.js')
+let app = require('./app')
 
 let server = app.listen(
   app.get('port', () => {
