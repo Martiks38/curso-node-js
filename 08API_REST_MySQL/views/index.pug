@@ -14,7 +14,7 @@ block content
               th Puntuación
               th Poster
               th(colspan="2")
-                form(method="get" action="/agregar")
+                form(method="GET" action="/agregar")
                   input(class="button add" type="submit" value="Agregar")
           tbody
             each movie in data
@@ -25,11 +25,12 @@ block content
                 td #{movie.rating}
                 td: img(class="poster" src=movie.img alt=movie.title)
                 td
-                  form(method="get" action=`/editar/${movie.movie_id}`)
+                  form(method="GET" action=`/editar/${movie.movie_id}`)
                     input(class="button edit" type="submit" value="Editar")
                 td
-                  form(method="post" action=`/eliminar/${movie.movie_id}`)
+                  form(method="POST" action=`/eliminar/${movie.movie_id}`)
                     input(class="button delete" type="button" value="Eliminar" onclick="eliminar(this)")
+                    input(type="hidden" name="_method" value="DELETE")
         script.
           function eliminar(input){
             let deleteOK = confirm("¿Estás seguro de eliminar la película?")

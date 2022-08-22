@@ -48,7 +48,7 @@ class MovieController {
     })
   }
 
-  insert(req, res, next) {
+  save(req, res, next) {
     let movie = {
       movie_id: req.body.movie_id,
       title: req.body.title,
@@ -57,14 +57,13 @@ class MovieController {
       img: req.body.image,
     }
 
-    MovieModel.insert(movie, (err) => {
+    MovieModel.save(movie, (err) => {
       if (err) {
         let locals = {
-          title: `Error al agregar el registro con id ${movie.movie_id}`,
+          title: `Error al salvar el registro con id: ${movie.movie_id}`,
           description: 'Error de Sintaxis SQL',
           error: err,
         }
-
         res.render('error', locals)
       } else {
         res.redirect('/')
@@ -72,29 +71,53 @@ class MovieController {
     })
   }
 
-  update(req, res, next) {
-    let movie = {
-      movie_id: req.body.movie_id,
-      title: req.body.title,
-      release_year: req.body.release_year,
-      rating: req.body.rating,
-      img: req.body.image,
-    }
+  // insert(req, res, next) {
+  //   let movie = {
+  //     movie_id: req.body.movie_id,
+  //     title: req.body.title,
+  //     release_year: req.body.release_year,
+  //     rating: req.body.rating,
+  //     img: req.body.image,
+  //   }
 
-    MovieModel.update(movie, (err) => {
-      if (err) {
-        let locals = {
-          title: `Error al actualizar el registro con id: ${movie.movie_id}`,
-          description: 'Error de Sintaxis SQL',
-          error: err,
-        }
+  //   MovieModel.insert(movie, (err) => {
+  //     if (err) {
+  //       let locals = {
+  //         title: `Error al agregar el registro con id ${movie.movie_id}`,
+  //         description: 'Error de Sintaxis SQL',
+  //         error: err,
+  //       }
 
-        res.render('error', locals)
-      } else {
-        res.redirect('/')
-      }
-    })
-  }
+  //       res.render('error', locals)
+  //     } else {
+  //       res.redirect('/')
+  //     }
+  //   })
+  // }
+
+  // update(req, res, next) {
+  //   let movie = {
+  //     movie_id: req.body.movie_id,
+  //     title: req.body.title,
+  //     release_year: req.body.release_year,
+  //     rating: req.body.rating,
+  //     img: req.body.image,
+  //   }
+
+  //   MovieModel.update(movie, (err) => {
+  //     if (err) {
+  //       let locals = {
+  //         title: `Error al actualizar el registro con id: ${movie.movie_id}`,
+  //         description: 'Error de Sintaxis SQL',
+  //         error: err,
+  //       }
+
+  //       res.render('error', locals)
+  //     } else {
+  //       res.redirect('/')
+  //     }
+  //   })
+  // }
 
   delete(req, res, next) {
     let movie_id = req.params.movie_id
