@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador de conexiones con Socket.IO</title>
+</head>
+
+<body>
+  <h1>Comunicación bidireccional con Socket.IO</h1>
+  <p id="hello"></p>
+  <p>Número de conexiones activas: <b id="conexions"></b></p>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    ( ( $, d ) => {
+      let io = $()
+
+      io.on( "hello", ( data ) => {
+        d.getElementById( "hello" ).innerHTML = data.message
+
+        io.emit( "otro evento que me invente", { name: "Martiks", twitter: "no tengo" } )
+      } )
+
+      io.on( "connect users", ( data ) => {
+        console.log( `Actualizando desde el Servidor. Hay ${ data.numbers } conexiones activas` )
+
+        d.getElementById( "conexions" ).innerHTML = data.numbers
+      } )
+    } )( io, document )
+  </script>
+</body>
+
+</html>
