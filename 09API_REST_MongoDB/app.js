@@ -2,10 +2,10 @@ let express = require('express')
 let app = express()
 
 let bodyParser = require('body-parser')
-let favicon = require('serve-favicon')
+let restful = require('express-method-override')('_method')
 let morgan = require('morgan')
 let pug = require('pug')
-let restful = require('express-method-override')('_method')
+let favicon = require('serve-favicon')
 
 let faviconURL = `${__dirname}/public/assets/android-icon-144x144.png`
 let publicDir = express.static(`${__dirname}/public`)

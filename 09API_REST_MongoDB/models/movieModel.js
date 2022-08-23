@@ -2,50 +2,47 @@ let conn = require('./movie-connection')
 
 class MovieModel {
   getAll(cb) {
-    let query = 'select * from movie'
-    conn.query(query, cb)
+    conn.find().exec((err, docs) => {
+      if (err) throw err
+
+      cb(docs)
+    })
   }
 
   getOne(id, cb) {
-    let query = 'select * from movie where movie_id = ?'
-    conn.query(query, id, cb)
+    conn.findOne({ movie_id: id }).exec((err, doc) => {
+      if (err) throw err
+
+      cb(doc)
+    })
   }
 
   save(data, cb) {
-    const insertOrUpdate = (err, rows) => {
-      if (err) return err
+    let { movie_id, ...restMovieData } = data
 
-      let query
+    conn.count({ movie_id }).exec((err, count) => {
+      if (err) throw err
 
-      if (rows.length == 1) {
-        query = 'update movie set ? where movie_id = ?'
-        conn.query(query, [data, data.movie_id], cb)
-      } else {
-        query = 'insert into movie set ?'
-        conn.query(query, data, cb)
-      }
-    }
+      count === 0
+        ? conn.create(data, (err) => {
+            if (err) throw err
 
-    conn.query(
-      'select * from movie where movie_id = ?',
-      data.movie_id,
-      insertOrUpdate
-    )
+            cb()
+          })
+        : conn.findOneAndUpdate({ movie_id }, restMovieData, (err) => {
+            if (err) throw err
+
+            cb()
+          })
+    })
   }
 
-  // insert(data, cb) {
-  //   let query = 'insert into movie set ?'
-  //   conn.query(query, data, cb)
-  // }
-
-  // update(data, cb) {
-  //   let query = 'update movie set ? where movie_id = ?'
-  //   conn.query(query, [data, data.movie_id], cb)
-  // }
-
   delete(id, cb) {
-    let query = 'delete from movie where movie_id = ?'
-    conn.query(query, id, cb)
+    conn.findOneAndDelete({ movie_id: id }, (err) => {
+      if (err) throw err
+
+      cb()
+    })
   }
 }
 

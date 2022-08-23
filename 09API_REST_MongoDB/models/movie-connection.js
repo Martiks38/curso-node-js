@@ -1,20 +1,21 @@
-let mysql = require('mysql')
-const conf = require('./db-conf.json').mysql
+let conf = require('./db-conf.json').mongo
 
-let dbOptions = {
-  host: conf.host,
-  user: conf.user,
-  password: conf.password,
-  port: conf.port,
-  database: conf.database,
-}
+let mongoose = require('mongoose')
+let Schema = mongoose.Schema
 
-let myConn = mysql.createConnection(dbOptions)
+const MovieSchema = new Schema(
+  {
+    movie_id: 'string',
+    title: 'string',
+    release_year: 'string',
+    rating: 'string',
+    img: 'string',
+  },
+  { collection: 'movie' }
+)
 
-myConn.connect((err) => {
-  return err
-    ? console.log(`Error al Conectarse a MySQL: ${err.stack}`)
-    : console.log(`Conexión establecida con MySQL N° ${myConn.threadId}`)
-})
+const MovieModel = mongoose.model('Movie', MovieSchema)
 
-module.exports = myConn
+mongoose.connect(`mongodb://${conf.host}/${conf.database}`)
+
+module.exports = MovieModel

@@ -1,9 +1,6 @@
 {
-  "mysql": {
+  "mongo": {
     "host": "localhost",
-    "user": "root",
-    "password": "#42069810surI",
-    "port": 3306,
     "database": "movies"
   }
 }
