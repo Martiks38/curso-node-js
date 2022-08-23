@@ -1,0 +1,85 @@
+html {
+  background-color: #1d1d1d;
+}
+
+a,
+h1,
+h2,
+label {
+  color: #80bd01;
+}
+
+fieldset {
+  padding: 1rem;
+  border: medium solid #80bd01;
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+.logo {
+  display: block;
+  margin: 1rem auto;
+  width: 450px;
+  height: 150px;
+  background: url('../assets/userIcon.webp') no-repeat;
+  background-size: contain;
+}
+
+.error {
+  font-size: 2rem;
+  padding: 1rem;
+  background-color: #80bd01;
+  color: #fff;
+}
+
+.poster {
+  max-width: 100px;
+}
+
+.table {
+  width: 100%;
+}
+
+.table td,
+.table th {
+  padding: 1rem;
+}
+
+.table thead tr:first-child {
+  background-color: #292623;
+  color: #80bd01;
+}
+
+.table tr:nth-child(even) {
+  background-color: #ccc;
+}
+
+.table tr:nth-child(odd) {
+  background-color: #eee;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  color: #fff;
+  background-color: #80bd01;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.button:hover {
+  opacity: 0.75;
+}
+
+.add {
+  background-color: #0b0;
+}
+
+.edit {
+  background-color: #0871b2;
+}
+
+.delete {
+  background-color: #d23641;
+}
