@@ -1,0 +1,14 @@
+Mongo es lazy, flojo puede crearse al momento de ser requerido
+
+show dbs
+show collections
+use namedb
+db.collection
+db.collection.insertOne
+db.collection.insertMany
+db.collection.replaceOne
+db.collection.replaceMany
+db.collection.deleteOne
+db.collection.deleteMany
+db.collection.find()
+db.collection.find().pretty()
