@@ -4,7 +4,7 @@ let myConnection = require('express-myconnection')
 let dbOptions = {
   host: 'localhost',
   user: 'root',
-  password: '#42069810surI',
+  password: '',
   port: 3306,
   database: 'movies',
 }
