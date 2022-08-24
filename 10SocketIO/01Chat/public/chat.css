@@ -1,0 +1,44 @@
+html {
+  font: 16px Helvetica, Arial;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#chat-form {
+  position: fixed;
+  bottom: 0;
+  padding: 0.5rem;
+  width: 100%;
+  font-size: 0;
+  background-color: #1d1d1d;
+}
+
+#chat-form button {
+  padding: 0.5rem;
+  width: 10%;
+  background-color: #80bd01;
+  border: none;
+}
+
+#message-text {
+  padding: 0.5rem;
+  width: 90%;
+  border: 0;
+}
+
+#chat {
+  list-style-type: none;
+}
+
+#chat li {
+  padding: 0.5rem;
+  background-color: #eee;
+}
+
+#chat li:nth-child(odd) {
+  background-color: #ddd;
+}
